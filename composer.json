@@ -9,7 +9,6 @@
         "laravel/framework": "5.3.*",
         "cmgmyr/messenger": "~2.0",
         "laravelcollective/html": "^5.3.0",
-        "laravel/scout": "^2.0",
         "algolia/algoliasearch-client-php": "^1.13",
         "zizaco/entrust": "dev-laravel-5",
         "barryvdh/laravel-debugbar": "^2.3"

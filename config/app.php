@@ -169,9 +169,8 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Cmgmyr\Messenger\MessengerServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        Laravel\Scout\ScoutServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
-        
+
 
         /*
          * Application Service Providers...
