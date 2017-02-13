@@ -32,7 +32,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function patients() {
-        return $this->belongsToMany('App\Patient')->withTimestamps();
+    public function assigned_tasks() {
+        return $this->hasMany('App\Task', 'id', 'assignee');
+    }
+
+    public function created_tasks() {
+        return $this->hasMany('App\Task', 'id', 'assigner');
     }
 }

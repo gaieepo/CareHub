@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateTasksTable extends Migration
+class DropPatientUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,7 @@ class UpdateTasksTable extends Migration
      */
     public function up()
     {
-        Schema::table('tasks', function($table) {
-            $table->string('action')->after('patient_id');
-        });
+        Schema::dropIfExists('patient_user');
     }
 
     /**
@@ -25,8 +23,6 @@ class UpdateTasksTable extends Migration
      */
     public function down()
     {
-        Schema::table('tasks', function($table) {
-            $table->dropColumn('action');
-        });
+        //
     }
 }

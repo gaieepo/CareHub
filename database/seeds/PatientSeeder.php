@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class PatientSeeder extends Seeder
 {
@@ -14,8 +15,9 @@ class PatientSeeder extends Seeder
         for($i=0;$i<20;$i++) {
         	DB::table('patients')->insert([
         		'nric' => 'A'.$i*123,
-        		'name' => 'Patient '.$i,
-        		'user_id' => $i%2+1,
+        		'name' => 'Patient_'.$i,
+                'complexity' => 1,
+                'discharge' => Carbon::now()->toDateTimeString()
         		]);
         }
     }
