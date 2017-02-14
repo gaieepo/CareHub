@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 
 use Carbon\Carbon;
+use App\Patient;
 
 class TaskSeeder extends Seeder
 {
@@ -13,30 +14,22 @@ class TaskSeeder extends Seeder
      */
     public function run()
     {
-    	$now = Carbon::now();
-        for($i=1;$i<10;$i=$i+2) {
-        	DB::table('tasks')->insert([
-        		'patient_id' => $i,
-        		'user_id' => 1,
-        		'start' => $now->addDays($i*3),
-        		]);
-        	DB::table('tasks')->insert([
-        		'patient_id' => $i,
-        		'user_id' => 1,
-        		'start' => $now->addDays($i*3+1),
-        		]);
-        }
-        for($i=2;$i<11;$i=$i+2) {
-        	DB::table('tasks')->insert([
-        		'patient_id' => $i,
-        		'user_id' => 2,
-        		'start' => $now->addDays($i*3),
-        		]);
-        	DB::table('tasks')->insert([
-        		'patient_id' => $i,
-        		'user_id' => 2,
-        		'start' => $now->addDays($i*3+1),
-        		]);
+        $newVer = 0;
+        $numPatients = Patient::all()->count();
+        for ($i=1; $i <= $numPatients; $i++) {
+            $cnt = rand(3, 8);
+            $step = 0;
+            for ($j=0; $j < $cnt; ++$j) {
+                $interval = rand(2, 14);
+                $step += $interval;
+
+                $newTask = new App\Task;
+                $newTask->patient_id = $i;
+                $newTask->action = 'Call';
+                $newTask->start = Carbon::now()->addDays($newVer)->addDays($step)->addDays($interval);
+                $newTask->save();
+            }
+            $newVer += rand(10, 20);
         }
     }
 }
