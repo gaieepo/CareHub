@@ -30,7 +30,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <![endif]-->
     <!-- fullCalendar 2.2.5-->
     <link rel="stylesheet" href="{{ asset('/bower_components/AdminLTE/plugins/fullcalendar/fullcalendar.css') }}" type="text/css" />
-    
+
     <!-- iCheck -->
     <link rel="stylesheet" href="{{asset('/bower_components/AdminLTE/plugins/iCheck/flat/blue.css')}}">
     <!-- Morris chart -->
@@ -43,7 +43,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="{{asset('/bower_components/AdminLTE/plugins/daterangepicker/daterangepicker.css')}}">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="{{asset('/bower_components/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
-
+    @stack('stylesheets')
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
@@ -130,6 +130,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('/bower_components/AdminLTE/plugins/slimScroll/jquery.slimscroll.js') }}"></script>
 <!-- FastClick -->
 <script src="{{ asset ('/bower_components/AdminLTE/plugins/fastclick/fastclick.js') }}"></script>
+@stack('scripts')
+
 @yield('postscript')
 </body>
 </html>
