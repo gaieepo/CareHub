@@ -1,76 +1,93 @@
-@extends('layouts.admin_template')
+@extends('static_forms.protocol_1.protocolLayout')
 
-@section('content')
-<script src="{{ URL::asset('js/app.js') }}"></script>
-<link href="{{ URL::asset('/css/jquery.wizard.css') }}" rel="stylesheet">
-<script src="{{ URL::asset('js/jquery.wizard.js') }}"></script>
-<style type="text/css">
-  .steps-content {
-    background: #ffffff;
-  }
-</style>
-
+@section('protocol_content')
 <div class="container-fluid">
+  <h3><strong>Chest Pain</strong></h3>
   <div data-wizard-init>
     <ul class="steps">
-    <li data-step="1">Details</li>
-    <li data-step="2">Address</li>
-    <li data-step="3">Template</li>
-    <li data-step="4">Delivery</li>
-    <li data-step="5">Payment</li>
-    <li data-step="6">Special needs</li>
-    <li data-step="7">Comments</li>
-    <li data-step="8">Images</li>
+      <li data-step="1">Notes</li>
+      <li data-step="2">Step A</li>
+      <li data-step="3">Step B</li>
+      <li data-step="4">Step C</li>
+      <li data-step="5">Step D</li>
+      <li data-step="6">Home Care</li>
     </ul>
     <div class="steps-content">
-    <div data-step="1">
-      <h4>Details</h4>
-      <p>
-      Sed ac nulla nec turpis pharetra rutrum et at mauris. Phasellus eleifend molestie est, eu lacinia nisi gravida non. Nullam sit amet pulvinar dolor. Etiam id fermentum erat. Proin quis rutrum sapien.
-      </p>
-    </div>
-    <div data-step="2">
-      <h4>Address</h4>
-      <p>
-      Sed eleifend lobortis dolor, vel hendrerit neque interdum eget. Proin ac hendrerit diam. Mauris tristique libero vel condimentum sodales. Ut sed augue euismod, tincidunt nunc at, rutrum risus. Cras consequat purus sit amet augue varius; vitae ornare erat commodo. In hac habitasse platea dictumst. Nunc lobortis auctor ligula dictum scelerisque. Integer sed justo rutrum, rutrum tortor nec, feugiat nulla?
-      </p>
-    </div>
-    <div data-step="3">
-      <h4>Template</h4>
-      <p>
-      Donec pharetra vel felis facilisis aliquam! Nunc consequat, lorem a scelerisque porttitor, orci neque mattis velit; at rhoncus quam felis a lorem. Cras dictum augue elit, non tempus leo pharetra nec! Nunc iaculis ex quis ante elementum varius. Curabitur a ultrices risus. Etiam elementum magna a eros maximus ornare. Aenean lectus dui, venenatis non tincidunt sed, dignissim at turpis? Vestibulum varius tempor turpis eget laoreet. Phasellus hendrerit purus vel arcu dapibus ullamcorper? Aliquam et nunc sagittis, semper orci eu, eleifend turpis! Integer eget aliquet libero. Vestibulum rutrum, ipsum nec bibendum sagittis, leo libero tristique erat, ut euismod lorem tortor quis lorem. Vivamus et tellus eu purus tempor posuere.
-      </p>
-    </div>
-    <div data-step="4">
-      <h4>Delivery</h4>
-      <p>
-      Nullam sit amet sollicitudin leo. Donec lobortis est a sagittis ornare. Mauris mattis dui sit amet tortor dapibus, sit amet scelerisque nisl fermentum. Praesent efficitur ac mauris sit amet placerat. Pellentesque ultricies, nibh eu elementum convallis, sapien dolor egestas nunc, vitae volutpat lorem orci sed libero. Nullam posuere, massa a tempor maximus, tortor enim ultricies urna, pretium viverra nisi urna id erat? Etiam nec dolor condimentum, consequat velit sagittis, luctus metus. Proin molestie neque justo, ut elementum arcu congue faucibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla orci est, elementum et venenatis congue, pharetra in lorem. Fusce a blandit arcu.
-      </p>
-    </div>
-    <div data-step="5">
-      <h4>Payment</h4>
-      <p>
-      Ut sed dignissim orci. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam scelerisque dapibus magna id scelerisque. Donec enim ligula, commodo ut sapien vitae, tincidunt tincidunt orci. Etiam faucibus sit amet ante ut ultrices. Etiam lacinia purus et sem fermentum commodo. Morbi a nulla ac purus cursus viverra. Fusce mauris sem, blandit quis arcu nec, posuere porta purus? Curabitur sit amet mauris tortor. Etiam pulvinar lacinia quam, vel interdum orci vulputate non. Praesent pharetra justo in lacus lacinia convallis. Morbi viverra blandit ultrices.
-      </p>
-    </div>
-    <div data-step="6">
-      <h4>Special needs</h4>
-      <p>
-      Cras iaculis nulla in tortor mollis tincidunt. Nulla vitae vehicula tellus. Nulla suscipit elit nibh, quis mattis purus posuere dictum. Donec varius at justo vel commodo! Phasellus leo enim, scelerisque eleifend mi non, laoreet tempor neque. Mauris tortor felis, varius quis sodales ut, accumsan sed magna. Duis sodales eros et ipsum condimentum, nec auctor leo rutrum. Maecenas lacinia ligula non tellus efficitur bibendum. Donec vitae ultricies diam.
-      </p>
-    </div>
-    <div data-step="7">
-      <h4>Comments</h4>
-      <p>
-      Suspendisse pharetra tincidunt eros, ac congue elit mattis vel. Mauris molestie aliquam ante, eu accumsan ex? Morbi pellentesque, arcu vitae porta sagittis, massa metus accumsan nunc, sit amet pretium dui dolor non lacus. In a massa vitae felis hendrerit mollis. Proin consequat mauris a quam volutpat, sit amet congue eros vestibulum. Phasellus sed libero vehicula, varius sem ut, feugiat risus. Sed ultrices lacus quis elit convallis placerat. Aliquam vitae mauris lacinia, mollis neque lobortis, placerat sapien? Sed condimentum facilisis tempor. Vivamus ut lorem a libero placerat semper at ut ipsum. Nulla et bibendum enim. Donec tempor sodales luctus.
-      </p>
-    </div>
-    <div data-step="8">
-      <h4>Images</h4>
-      <p>
-      Cras nec nisl a quam scelerisque convallis! Morbi tempus dictum sapien. Mauris eget dictum augue, non consequat urna. Suspendisse dictum sapien imperdiet, tincidunt libero ac, pulvinar est. Curabitur sagittis eget orci ac consectetur! Sed ut ante ipsum. Curabitur vel consequat metus; sit amet iaculis lorem? Aliquam tincidunt diam sit amet odio suscipit mattis. In non lobortis odio. Duis sodales volutpat efficitur. Maecenas diam diam, pulvinar a erat sit amet, aliquet pharetra lectus. Ut ultricies nibh vitae egestas dapibus. Integer quis dignissim arcu, et pharetra elit. Integer scelerisque enim quis molestie ullamcorper. Proin pretium et justo non cursus. Integer feugiat volutpat sapien, ut consequat libero rutrum in.
-      </p>
-    </div>
+      <div data-step="1">
+        <h4>Key Questions to take note:</h4>
+        <p>Description of pain, what was patient doing prior to chest pain, associated symptoms, any medications taken, duration of pain, relieved by medication, pain scale</p>
+        <h4>Other Protocols to consider:</h4>
+        <p>Breathing Problems, Common Cold Symptoms, Congestion, Congestive Heart Failure, Cough, Dizziness, Heartburn, Heart Rate Problems, Indigestion, Nausea/Vomiting</p>
+      </div>
+      <div data-step="2" class="container-fluid row">
+        <assessment-panel class="col-xs-6">
+          <h4>Assessment</h4>
+          <h4>Are any of the complaints present?</h4>
+          <fieldset class="checkboxgroup">
+            <label>
+              <input type="checkbox"> &nbsp Continuous or intermittent pain tightness, pressure, or discomfort accompanied by the following:
+            </label>
+            <ul>
+              <sublabel><input type="checkbox"> shortness of breath</sublabel><br>
+              <sublabel><input type="checkbox"> dizziness or weakness</sublabel><br>
+              <sublabel><input type="checkbox"> diaphoresis</sublabel><br>
+              <sublabel><input type="checkbox"> nausea or vomiting</sublabel><br>
+              <sublabel><input type="checkbox"> pain radiated to jaw, neck, back, shoulder or arm</sublabel><br>
+              <sublabel><input type="checkbox"> fast heart rate</sublabel><br>
+            </ul>
+            <label>
+              <input type="checkbox"> &nbsp Chest pain persists, unrelieved by rest, pain medication (eg, analgesia, antacid) or nitroglycerin every 5 minutes (number of doses taken, spray or sublingual)
+            </label>
+            <label>
+              <input type="checkbox"> &nbsp Anginal chest pain at rest (eg, pale, diaphoresis, SOB, near syncope)
+            </label>
+            <label>
+              <input type="checkbox"> &nbsp Pain not relieved by two nitroglycerin tablets
+            </label>
+            <label>
+              <input type="checkbox"> &nbsp Coughing up blood (moderate to large amount)
+            </label>
+            <label>
+              <input type="checkbox"> &nbsp Heart palpitations with dizziness or near syncope
+            </label>
+          </fieldset>
+        </assessment-panel>
+        <action-panel class="col-xs-6">
+          <h4>IF YES,</h4>
+          <p>Instruct care giver or patient to ACTIVATE 995 Ambulance for help</p>
+          <p>CareHub Team to activate 995 Ambulance on behalf if:</p>
+          <ul>
+            <li>Patient sounded in distress</li>
+            <li>Drowsy</li>
+            <li>Altered mental status</li>
+          </ul>
+          <p>Instruct patient to take one adult aspirin (if prescribed by doctor) or one sublingual GTN before ambulance arrives</p>
+        </action-panel>
+      </div>
+      <div data-step="3">
+        <h4>Template</h4>
+        <p>
+        Donec pharetra vel felis facilisis aliquam! Nunc consequat, lorem a scelerisque porttitor, orci neque mattis velit; at rhoncus quam felis a lorem. Cras dictum augue elit, non tempus leo pharetra nec! Nunc iaculis ex quis ante elementum varius. Curabitur a ultrices risus. Etiam elementum magna a eros maximus ornare. Aenean lectus dui, venenatis non tincidunt sed, dignissim at turpis? Vestibulum varius tempor turpis eget laoreet. Phasellus hendrerit purus vel arcu dapibus ullamcorper? Aliquam et nunc sagittis, semper orci eu, eleifend turpis! Integer eget aliquet libero. Vestibulum rutrum, ipsum nec bibendum sagittis, leo libero tristique erat, ut euismod lorem tortor quis lorem. Vivamus et tellus eu purus tempor posuere.
+        </p>
+      </div>
+      <div data-step="4">
+        <h4>Delivery</h4>
+        <p>
+        Nullam sit amet sollicitudin leo. Donec lobortis est a sagittis ornare. Mauris mattis dui sit amet tortor dapibus, sit amet scelerisque nisl fermentum. Praesent efficitur ac mauris sit amet placerat. Pellentesque ultricies, nibh eu elementum convallis, sapien dolor egestas nunc, vitae volutpat lorem orci sed libero. Nullam posuere, massa a tempor maximus, tortor enim ultricies urna, pretium viverra nisi urna id erat? Etiam nec dolor condimentum, consequat velit sagittis, luctus metus. Proin molestie neque justo, ut elementum arcu congue faucibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla orci est, elementum et venenatis congue, pharetra in lorem. Fusce a blandit arcu.
+        </p>
+      </div>
+      <div data-step="5">
+        <h4>Payment</h4>
+        <p>
+        Ut sed dignissim orci. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam scelerisque dapibus magna id scelerisque. Donec enim ligula, commodo ut sapien vitae, tincidunt tincidunt orci. Etiam faucibus sit amet ante ut ultrices. Etiam lacinia purus et sem fermentum commodo. Morbi a nulla ac purus cursus viverra. Fusce mauris sem, blandit quis arcu nec, posuere porta purus? Curabitur sit amet mauris tortor. Etiam pulvinar lacinia quam, vel interdum orci vulputate non. Praesent pharetra justo in lacus lacinia convallis. Morbi viverra blandit ultrices.
+        </p>
+      </div>
+      <div data-step="6">
+        <h4>Special needs</h4>
+        <p>
+        Cras iaculis nulla in tortor mollis tincidunt. Nulla vitae vehicula tellus. Nulla suscipit elit nibh, quis mattis purus posuere dictum. Donec varius at justo vel commodo! Phasellus leo enim, scelerisque eleifend mi non, laoreet tempor neque. Mauris tortor felis, varius quis sodales ut, accumsan sed magna. Duis sodales eros et ipsum condimentum, nec auctor leo rutrum. Maecenas lacinia ligula non tellus efficitur bibendum. Donec vitae ultricies diam.
+        </p>
+      </div>
     </div>
   </div>
 </div><!--/.fluid-container-->
