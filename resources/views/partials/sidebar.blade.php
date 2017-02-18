@@ -26,18 +26,7 @@
                     <li><a href="{{ url('/patient_summary')}}">Patient Summary</a></li>
                     <li><a href="{{ url('/patient_profile')}}">Patient Profile</a></li>
                     <li><a href="{{ url('/call_log')}}">Call Log</a></li>
-                    <li class="treeview">
-                        <a href="#"><span>Protocol List</span> <i class="fa fa-angle-left pull-right"></i></a>
-                        <ul class="treeview-menu">
-                            <li><a href="{{ url('/protocol_1')}}">Chest Pain</a></li>
-                            <li><a href="{{ url('/protocol_2')}}">Congestive Heart Failure</a></li>
-                            <li><a href="{{ url('/protocol_3')}}">Diuretic Titration</a></li>
-                            <li><a href="{{ url('/protocol_4')}}">Breathing Problem</a></li>
-                            <li><a href="{{ url('/protocol_5')}}">Dizziness</a></li>
-                            <li><a href="{{ url('/protocol_6')}}">Escalation</a></li>
-                            <li><a href="{{ url('/protocol_7')}}">Heart Rate problem</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="{{ url('/protocol_index')}}">Protocol List</a></li>
                     <li><a href="#">Adherence</a></li>
                 </ul>
             </li>

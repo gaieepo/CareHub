@@ -11,8 +11,12 @@
       .checkboxgroup ul li {
         list-style-type: none;
       }
-      .checkboxgroup {
-
+      .protocol-menu {
+        padding-left: 60px;
+      }
+      .protocol-menu li {
+        font-size: 120%;
+        padding-top: 10px;
       }
     </style>
   @endpush

@@ -40,6 +40,9 @@ Route::get('patient_profile', function () {
 Route::get('call_log', function () {
         return view('static_forms/call_log/call_log');
     });
+Route::get('protocol_index', function () {
+        return view('static_forms/protocol_1/protocolIndex');
+   });
 Route::get('protocol_1', function () {
         return view('static_forms/protocol_1/protocol1');
     });
