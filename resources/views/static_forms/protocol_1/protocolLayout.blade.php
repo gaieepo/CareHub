@@ -5,18 +5,27 @@
     <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('/css/jquery.wizard.css') }}" rel="stylesheet">
     <style type="text/css">
-      .steps-content {
-        background: #ffffff;
-      }
-      .checkboxgroup ul li {
-        list-style-type: none;
-      }
       .protocol-menu {
         padding-left: 60px;
       }
       .protocol-menu li {
         font-size: 120%;
         padding-top: 10px;
+      }
+      .steps-content {
+        background: #ffffff;
+      }
+      .checkboxgroup ul li {
+        list-style-type: none;
+      }
+      .checkboxgroup > ul > li {
+        list-style-type: none;
+      }
+      .checkboxgroup > ul > label {
+        color: red;
+      }
+      .checkboxgroup input[type=checkbox]:checked + sublabel label {
+        color: #f00000;
       }
     </style>
   @endpush

@@ -28,12 +28,12 @@
               <input type="checkbox"> &nbsp Continuous or intermittent pain tightness, pressure, or discomfort accompanied by the following:
             </label>
             <ul>
-              <sublabel><input type="checkbox"> shortness of breath</sublabel><br>
-              <sublabel><input type="checkbox"> dizziness or weakness</sublabel><br>
-              <sublabel><input type="checkbox"> diaphoresis</sublabel><br>
-              <sublabel><input type="checkbox"> nausea or vomiting</sublabel><br>
-              <sublabel><input type="checkbox"> pain radiated to jaw, neck, back, shoulder or arm</sublabel><br>
-              <sublabel><input type="checkbox"> fast heart rate</sublabel><br>
+              <label><input type="checkbox"> shortness of breath</label><br>
+              <label><input type="checkbox"> dizziness or weakness</label><br>
+              <label><input type="checkbox"> diaphoresis</label><br>
+              <label><input type="checkbox"> nausea or vomiting</label><br>
+              <label><input type="checkbox"> pain radiated to jaw, neck, back, shoulder or arm</label><br>
+              <label><input type="checkbox"> fast heart rate</label><br>
             </ul>
             <label>
               <input type="checkbox"> &nbsp Chest pain persists, unrelieved by rest, pain medication (eg, analgesia, antacid) or nitroglycerin every 5 minutes (number of doses taken, spray or sublingual)
@@ -64,11 +64,14 @@
           <p>Instruct patient to take one adult aspirin (if prescribed by doctor) or one sublingual GTN before ambulance arrives</p>
         </action-panel>
       </div>
-      <div data-step="3">
-        <h4>Template</h4>
-        <p>
-        Donec pharetra vel felis facilisis aliquam! Nunc consequat, lorem a scelerisque porttitor, orci neque mattis velit; at rhoncus quam felis a lorem. Cras dictum augue elit, non tempus leo pharetra nec! Nunc iaculis ex quis ante elementum varius. Curabitur a ultrices risus. Etiam elementum magna a eros maximus ornare. Aenean lectus dui, venenatis non tincidunt sed, dignissim at turpis? Vestibulum varius tempor turpis eget laoreet. Phasellus hendrerit purus vel arcu dapibus ullamcorper? Aliquam et nunc sagittis, semper orci eu, eleifend turpis! Integer eget aliquet libero. Vestibulum rutrum, ipsum nec bibendum sagittis, leo libero tristique erat, ut euismod lorem tortor quis lorem. Vivamus et tellus eu purus tempor posuere.
-        </p>
+      <div data-step="3" class="container-fluid row">
+        <assessment-panel class="col-xs-6">
+          <h4>Assessment</h4>
+          <h4>Are any of the complaints present?</h4>
+
+        </assessment-panel classs="col-xs-6">
+        <action-panel>
+        <action-panel>
       </div>
       <div data-step="4">
         <h4>Delivery</h4>
