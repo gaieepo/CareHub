@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'messages'], function() {
 	Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessageController@update']);
 });
 
+
 Route::get('patient_summary', function () {
         return view('static_forms/patient_summary/patientsummary');
 });
@@ -40,29 +41,28 @@ Route::get('patient_profile', function () {
 Route::get('call_log', function () {
         return view('static_forms/call_log/call_log');
     });
-Route::get('protocol_index', function () {
-        return view('static_forms/protocol_1/protocolIndex');
-   });
+
+Route::resource('protocol', 'ProtocolController@index');
 Route::get('protocol_1', function () {
-        return view('static_forms/protocol_1/protocol1');
+        return view('protocols/protocol1');
     });
 Route::get('protocol_2', function () {
-        return view('static_forms/protocol_2/protocol2');
+        return view('protocols/protocol2');
     });
 Route::get('protocol_3', function () {
-        return view('static_forms/protocol_3/protocol3');
+        return view('protocols/protocol3');
     });
 Route::get('protocol_4', function () {
-        return view('static_forms/protocol_4/protocol4');
+        return view('protocols/protocol4');
     });
 Route::get('protocol_5', function () {
-        return view('static_forms/protocol_5/protocol5');
+        return view('protocols/protocol5');
     });
 Route::get('protocol_6', function () {
-        return view('static_forms/protocol_6/protocol6');
+        return view('protocols/protocol6');
     });
 Route::get('protocol_7', function () {
-        return view('static_forms/protocol_7/protocol7');
+        return view('protocols/protocol7');
     });
 Route::get('adherence', function () {
         return view('static_forms/adherence/adherence');
