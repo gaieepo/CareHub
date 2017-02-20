@@ -21,38 +21,29 @@
       </div>
       <div data-step="2" class="container-fluid row">
         <assessment-panel class="col-xs-6">
-          <h4>Assessment</h4>
+          <h4>Assessment</h4><hr>
           <h4>Are any of the complaints present?</h4>
           <fieldset class="checkboxgroup">
-            <label>
-              <input type="checkbox"> &nbsp Continuous or intermittent pain tightness, pressure, or discomfort accompanied by the following:
-            </label>
             <ul>
-              <label><input type="checkbox"> shortness of breath</label><br>
-              <label><input type="checkbox"> dizziness or weakness</label><br>
-              <label><input type="checkbox"> diaphoresis</label><br>
-              <label><input type="checkbox"> nausea or vomiting</label><br>
-              <label><input type="checkbox"> pain radiated to jaw, neck, back, shoulder or arm</label><br>
-              <label><input type="checkbox"> fast heart rate</label><br>
+              <li><label><input type="checkbox">Continuous or intermittent pain tightness, pressure, or discomfort accompanied by the following:</label></li>
+              <ul class="nested-ul">
+                <li><label><input type="checkbox">shortness of breath</label></li>
+                <li><label><input type="checkbox" id="a2">dizziness or weakness</label></li>
+                <li><label><input type="checkbox" id="a3">diaphoresis</label></li>
+                <li><label><input type="checkbox" id="a4">nausea or vomiting</label></li>
+                <li><label><input type="checkbox" id="a5">pain radiated to jaw, neck, back, shoulder or arm</label></li>
+                <li><label><input type="checkbox" id="a6">fast heart rate</label></li>
+              </ul>
+              <li><label><input type="checkbox">Chest pain persists, unrelieved by rest, pain medication (eg, analgesia, antacid) or nitroglycerin every 5 minutes (number of doses taken, spray or sublingual)</label></li>
+              <li><label><input type="checkbox">Anginal chest pain at rest (eg, pale, diaphoresis, SOB, near syncope)</label></li>
+              <li><label><input type="checkbox">Pain not relieved by two nitroglycerin tablets</label></li>
+              <li><label><input type="checkbox">Coughing up blood (moderate to large amount)</label></li>
+              <li><label><input type="checkbox">Heart palpitations with dizziness or near syncope</label></li>
             </ul>
-            <label>
-              <input type="checkbox"> &nbsp Chest pain persists, unrelieved by rest, pain medication (eg, analgesia, antacid) or nitroglycerin every 5 minutes (number of doses taken, spray or sublingual)
-            </label>
-            <label>
-              <input type="checkbox"> &nbsp Anginal chest pain at rest (eg, pale, diaphoresis, SOB, near syncope)
-            </label>
-            <label>
-              <input type="checkbox"> &nbsp Pain not relieved by two nitroglycerin tablets
-            </label>
-            <label>
-              <input type="checkbox"> &nbsp Coughing up blood (moderate to large amount)
-            </label>
-            <label>
-              <input type="checkbox"> &nbsp Heart palpitations with dizziness or near syncope
-            </label>
           </fieldset>
         </assessment-panel>
         <action-panel class="col-xs-6">
+          <h4>Action Taken</h4><hr>
           <h4>IF YES,</h4>
           <p>Instruct care giver or patient to ACTIVATE 995 Ambulance for help</p>
           <p>CareHub Team to activate 995 Ambulance on behalf if:</p>
@@ -68,7 +59,9 @@
         <assessment-panel class="col-xs-6">
           <h4>Assessment</h4>
           <h4>Are any of the complaints present?</h4>
+          <form method="POST">
 
+          </form>
         </assessment-panel classs="col-xs-6">
         <action-panel>
         <action-panel>
