@@ -6,7 +6,7 @@
     <link href="{{ URL::asset('/css/jquery.wizard.css') }}" rel="stylesheet">
     <style type="text/css">
       .protocol-menu {
-        padding-left: 60px;
+        padding-left: 40px;
       }
       .protocol-menu li {
         font-size: 120%;

@@ -43,27 +43,8 @@ Route::get('call_log', function () {
     });
 
 Route::resource('protocol', 'ProtocolController@index');
-Route::get('protocol_1', function () {
-        return view('protocols/protocol1');
-    });
-Route::get('protocol_2', function () {
-        return view('protocols/protocol2');
-    });
-Route::get('protocol_3', function () {
-        return view('protocols/protocol3');
-    });
-Route::get('protocol_4', function () {
-        return view('protocols/protocol4');
-    });
-Route::get('protocol_5', function () {
-        return view('protocols/protocol5');
-    });
-Route::get('protocol_6', function () {
-        return view('protocols/protocol6');
-    });
-Route::get('protocol_7', function () {
-        return view('protocols/protocol7');
-    });
+Route::resource('protocol_show/{id}', 'ProtocolController@show');
+
 Route::get('adherence', function () {
         return view('static_forms/adherence/adherence');
     });
