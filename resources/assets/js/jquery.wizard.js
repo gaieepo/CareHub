@@ -123,8 +123,8 @@ if(!bg){
         //qiyun that.$element.find('.btn-next').removeClass('final-step '+ opts.btnClassCompleted).addClass(opts.btnClassDefault);
         that.$element.find('.btn-next').removeClass('disabled hidden').addClass(opts.btnClassDefault);
         that.$element.find('.btn-prev').removeClass('disabled hidden');
-        that.$element.find('.finished-text').addClass('final-step btn btn-success'); //qiyun
-        that.$element.find('.cancel-text').addClass('btn btn-default'); //qiyun
+        that.$element.find('.finished-btn').addClass('final-step btn btn-success'); //qiyun
+        that.$element.find('.cancel-btn').addClass('btn btn-default'); //qiyun
 
         if(that.currentStep == stepsItems.length){
             // we are in the last step
@@ -238,7 +238,7 @@ if(!bg){
                 html += '<div class="right-actions"><span class="'+ opts.btnClass +' '+ opts.btnClassDefault +' btn-next"><span class="next-text">'+ opts.text.next +'</span></span></div></div>';
                 //<qiyun <span class="finished-text">'+ opts.text.finished +'</span>
                 html += '<div class="stable-panel"><div class="stable-actions">';
-                html += '<div><span class="finished-text">' + opts.text.finished +'</span><span class="cancel-text">Cancel</sapn></div></div></div>';
+                html += '<div><span class="finished-btn">' + opts.text.finished +'</span><a class="cancel-btn">Cancel</a></div></div></div>';
                 //qiyun>
                 that.$element.find('.steps-content').append(html);
             }

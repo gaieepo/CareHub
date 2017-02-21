@@ -166,8 +166,8 @@
 
 .wizard .bottom-actions .btn-next,
 .wizard .bottom-actions .btn-prev,
-.wizard .finished-text,
-.wizard .cancel-text {
+.wizard .finished-btn,
+.wizard .cancel-btn {
 	margin: 10px;
 }
 
@@ -181,12 +181,12 @@
 
 .wizard .btn-next,
 .wizard .btn-prev,
-.wizard .finished-text,
-.wizard .cancel-text {
+.wizard .finished-btn,
+.wizard .cancel-btn {
 	white-space: nowrap;
 }
 
-.wizard .btn-next:not(.final-step) .finished-text {
+.wizard .btn-next:not(.final-step) .finished-btn {
 	display: none;
 }
 
