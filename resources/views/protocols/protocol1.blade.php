@@ -3,7 +3,7 @@
 @section('protocol_content')
 <div class="container-fluid">
   <h3><strong>Chest Pain</strong></h3>
-  <div data-wizard-init>
+  <div class="guide-panel"><div data-wizard-init>
     <ul class="steps">
       <li data-step="1">Notes</li>
       <li data-step="2">Step A</li>
@@ -85,7 +85,7 @@
         </p>
       </div>
     </div>
-  </div>
+  </div></div><!--/.guide-panel-->
 </div><!--/.fluid-container-->
 
 @stop

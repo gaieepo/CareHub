@@ -29,24 +29,50 @@
         padding-top: 0;
         margin-top: 0;
       }
-      .nested-ul label{
+      .nested-ul label {
         font-weight: normal;
       }
-/*
-      input[type=checkbox] + label {
-        color: mediumpurple;
+      .summary-result {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 5px;
+        padding-left: 5px;
+        margin-top: 20px;
       }
-      input[type=checkbox]:checked + label {
-        color: red;
-      }
-*/
       </style>
   @endpush
 
-  @push('scripts')
-    <script src="{{ URL::asset('js/jquery.wizard.js') }}"></script>
-  @endpush
-
   @yield('protocol_content')
+
+  @section('postscript')
+    <script src="{{ URL::asset('js/jquery.wizard.js') }}"></script>
+    <script>
+      jQuery(document).ready(function() {
+
+        //color change for checked/unchecked box
+        $('input:checkbox').each(function(){
+          var $t = $(this);
+          $t.on('change', function(){
+            $t.is(':checked') ? $t.parent().css('color','red') : $t.parent().css('color','#636b6f');
+          })
+        });
+
+        //generate quick summary by clicking complete button
+        var quick_summary='';
+        $('.finished-btn').on('click', function(){
+          quick_summary=''; //clear the string content
+          $('input[type=checkbox]:checked').each(function() {
+            var $t = $(this);
+            quick_summary = quick_summary + '<li>' + $t.parent().text() + '</li>';
+          });
+          $('.guide-panel').empty().html('<div class="row"><div class="col-xs-8 col-xs-offset-2 panel panel-default summary-result"><ul>' + quick_summary + '</ul></div></div>' + '<div class="row"><div class="col-xs-8 col-xs-offset-2"><span class="btn btn-success pull-right">Copy to Clipboard</span></div></div>');
+        });
+
+        //attach href to redirect to protocolIndex page when clicking
+        $('.cancel-btn').attr("href", "{{ url('/protocol')}}")
+
+      });
+    </script>
+  @endsection
 
 @stop
