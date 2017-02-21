@@ -48,7 +48,7 @@
 
 .wizard .steps-index-container {
 	position: relative;
-	overflow: hidden;	
+	overflow: hidden;
 }
 
 .wizard .steps-content{
@@ -141,13 +141,15 @@
 	display: table-cell;
 	vertical-align: middle;
 }
-.wizard .bottom-actions {
+.wizard .bottom-actions,
+.wizard .stable-panel {
 	width: 100%;
 	display: table;
 }
 
 .wizard .left-actions,
-.wizard .right-actions {
+.wizard .right-actions,
+.wizard .stable-actions {
 	display: table-cell;
 	width: 50%;
 }
@@ -156,13 +158,16 @@
 	text-align: left;
 }
 
-.wizard .right-actions {
+.wizard .right-actions,
+.wizard .stable-actions {
 	text-align: right;
 }
 
 
 .wizard .bottom-actions .btn-next,
-.wizard .bottom-actions .btn-prev {
+.wizard .bottom-actions .btn-prev,
+.wizard .finished-text,
+.wizard .cancel-text {
 	margin: 10px;
 }
 
@@ -175,7 +180,9 @@
 }
 
 .wizard .btn-next,
-.wizard .btn-prev {
+.wizard .btn-prev,
+.wizard .finished-text,
+.wizard .cancel-text {
 	white-space: nowrap;
 }
 

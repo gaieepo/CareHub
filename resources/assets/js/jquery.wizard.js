@@ -120,11 +120,16 @@ if(!bg){
         }
 
         // set buttons based on current step
-        that.$element.find('.btn-next').removeClass('final-step '+ opts.btnClassCompleted).addClass(opts.btnClassDefault);
+        //qiyun that.$element.find('.btn-next').removeClass('final-step '+ opts.btnClassCompleted).addClass(opts.btnClassDefault);
+        that.$element.find('.btn-next').removeClass('disabled hidden').addClass(opts.btnClassDefault);
         that.$element.find('.btn-prev').removeClass('disabled hidden');
+        that.$element.find('.finished-text').addClass('final-step btn btn-success'); //qiyun
+        that.$element.find('.cancel-text').addClass('btn btn-default'); //qiyun
+
         if(that.currentStep == stepsItems.length){
             // we are in the last step
-            that.$element.find('.btn-next').removeClass(opts.btnClassDefault).addClass('final-step '+ opts.btnClassCompleted);
+            //qiyun that.$element.find('.btn-next').removeClass(opts.btnClassDefault).addClass('final-step '+ opts.btnClassCompleted);
+            that.$element.find('.btn-next').removeClass(opts.btnClassDefault).addClass('disabled hidden');
         } else if(that.currentStep == 1){
             that.$element.find('.btn-prev').addClass('disabled hidden');
         }
@@ -203,6 +208,8 @@ if(!bg){
             var stepsBar = this.$element.find('.steps'),
             topActions = this.$element.find('.top-actions'),
             bottomActions = this.$element.find('.bottom-actions'),
+            // qiyun
+            stableActions = this.$element.find('.stable-actions'),
             progressBar = this.$element.find('.progress-bar'),
             html = '';
 
@@ -217,7 +224,8 @@ if(!bg){
             if(opts.topButtons && stepsBar.length && !topActions.length){
                 html += '<div class="top-actions"><div class="btn-group">';
                 html += '<span class="'+ opts.btnClass +' '+ opts.btnClassDefault +' btn-prev"><span class="previous-text">'+ opts.text.previous +'</span></span>';
-                html += '<span class="'+ opts.btnClass +' '+ opts.btnClassDefault +' btn-next"><span class="next-text">'+ opts.text.next +'</span><span class="finished-text">'+ opts.text.finished +'</span></span>';
+                html += '<span class="'+ opts.btnClass +' '+ opts.btnClassDefault +' btn-next"><span class="next-text">'+ opts.text.next +'</span></span>';
+                //qiyun <span class="finished-text">'+ opts.text.finished +'</span>
                 html += '</div></div>';
 
                 stepsBar.after(html);
@@ -227,9 +235,11 @@ if(!bg){
             if(opts.bottomButtons && !bottomActions.length){
                 html += '<div class="bottom-actions">';
                 html += '<div class="left-actions"><span class="'+ opts.btnClass +' '+ opts.btnClassDefault +' btn-prev"><span class="previous-text">'+ opts.text.previous +'</span></span></div>';
-                html += '<div class="right-actions"><span class="'+ opts.btnClass +' '+ opts.btnClassDefault +' btn-next"><span class="next-text">'+ opts.text.next +'</span><span class="finished-text">'+ opts.text.finished +'</span></span></div>';
-                html += '</div>';
-
+                html += '<div class="right-actions"><span class="'+ opts.btnClass +' '+ opts.btnClassDefault +' btn-next"><span class="next-text">'+ opts.text.next +'</span></span></div></div>';
+                //<qiyun <span class="finished-text">'+ opts.text.finished +'</span>
+                html += '<div class="stable-panel"><div class="stable-actions">';
+                html += '<div><span class="finished-text">' + opts.text.finished +'</span><span class="cancel-text">Cancel</sapn></div></div></div>';
+                //qiyun>
                 that.$element.find('.steps-content').append(html);
             }
 
