@@ -24,7 +24,7 @@
           <h4><b class="attention-color">Are any of the complaints present?</b></h4>
           <fieldset class="checkboxgroup">
             <ul>
-              <li><label><input type="checkbox" id="ntul-parent">Is the heart rate > 150 beats per minute (if there is a blood pressure set with pulse rate where patient can read or patient is able to calculate from the palpation of radial pulse based on one minute) </label></li>
+              <li><label><input type="checkbox">Is the heart rate > 150 beats per minute (if there is a blood pressure set with pulse rate where patient can read or patient is able to calculate from the palpation of radial pulse based on one minute) </label></li>
               <li><label><input type="checkbox">Persistent rapid heart rate of >150 beats per minute for >30minutes with increase fatigue</label></li>
               <li><label><input type="checkbox">Chest, neck, jaw or arm pain or  discomfort</label></li>
               <li><label><input type="checkbox">Difficulty in breathing</label></li>
