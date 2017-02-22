@@ -61,6 +61,7 @@
 
   @section('postscript')
     <script src="{{ URL::asset('js/jquery.wizard.js') }}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
     <script>
       jQuery(document).ready(function() {
 
@@ -90,12 +91,26 @@
         //generate quick summary by clicking complete button
         var quick_summary='';
         $('.finished-btn').on('click', function(){
+          window.getSelection().removeAllRanges();
           quick_summary=''; //clear the string content
           $('input[type=checkbox]:checked').each(function() {
             var $t = $(this);
             quick_summary = quick_summary + '<li>' + $t.parent().text() + '</li>';
           });
-          $('.guide-panel').empty().html('<div class="row"><div class="col-xs-8 col-xs-offset-2 panel panel-default summary-result"><ul>' + quick_summary + '</ul></div></div>' + '<div class="row"><div class="col-xs-8 col-xs-offset-2 summary-btn-panel"><div class="pull-right"><span class="btn btn-success">Copy to Clipboard</span><span>&nbsp&nbsp&nbsp</span><a class="btn btn-default" href="{{ url('/protocol')}}">Cancel</a></div></div></div>');
+          $('.container-fluid').empty().html('<div class="row1"><div id="content" class="col-xs-8 col-xs-offset-2 panel panel-default summary-result"><ul>' + quick_summary + '</ul></div></div>' + '<div class="row2"><div class="col-xs-8 col-xs-offset-2 summary-btn-panel"><div class="pull-right"><span class="btn btn-success" data-clipboard-target="#content">Copy to Clipboard</span><span>&nbsp&nbsp&nbsp</span><a class="btn btn-default" href="{{ url('/protocol')}}">Cancel</a></div></div></div>');
+
+        });
+
+        //Copy to clickboard JH
+        var clipboard = new Clipboard('.btn-success');
+
+        clipboard.on('success', function(e) {
+          console.log(e);
+          window.getSelection().removeAllRanges();
+        });
+
+        clipboard.on('error', function(e) {
+          console.log(e);
         });
 
         //attach href to redirect to protocolIndex page when clicking
