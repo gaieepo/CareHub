@@ -16,6 +16,8 @@ require('laravel-elixir-vue-2');
 elixir(mix => {
     mix.sass('app.scss')
        .styles('jquery.wizard.css')
+       .styles('lightbox.min.css')
        .webpack('app.js')
-       .webpack('jquery.wizard.js');
+       .webpack('jquery.wizard.js')
+       .webpack('lightbox.min.js');
 });
