@@ -4,6 +4,7 @@
   @push('stylesheets')
     <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('css/jquery.wizard.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('css/lightbox.min.css') }}" rel="stylesheet">
     <style type="text/css">
       .protocol-menu {
         padding-left: 40px;
@@ -62,6 +63,7 @@
   @section('postscript')
     <script src="{{ URL::asset('js/jquery.wizard.js') }}"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+    <script src="{{ URL::asset('js/lightbox.min.js') }}""></script>
     <script>
       jQuery(document).ready(function() {
 
@@ -118,6 +120,7 @@
 
       });
     </script>
+    
   @endsection
 
 @stop
