@@ -19,7 +19,7 @@ Route::get('patient/generateTasks/{id}/{complexity}', ['as' => 'generateTasks', 
 Route::resource('patient', 'PatientController');
 Route::resource('task', 'TaskController');
 
-Route::get('calendar', 'TestController@index')->middleware('auth');
+Route::get('calendar', 'CalendarController@index');
 
 Route::get('user/{id}', 'UserController@show');
 

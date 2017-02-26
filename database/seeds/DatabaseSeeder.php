@@ -11,8 +11,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // Eloquent::unguard();
+        Schema::disableForeignKeyConstraints();
+
         $this->call(InitSeeder::class);
         $this->call(PatientSeeder::class);
         $this->call(TaskSeeder::class);
+
+        Schema::enableForeignKeyConstraints();
     }
 }

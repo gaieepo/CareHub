@@ -21,3 +21,12 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Patient::class, function (Faker\Generator $faker) {
+    return [
+        'nric' => str_random(9),
+        'name' => $faker->name,
+        'complexity' => $faker->randomElement(['basic', 'moderate', 'complex']),
+        'discharge' => $faker->dateTimeThisMonth(),
+    ];
+});
