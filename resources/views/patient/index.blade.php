@@ -3,7 +3,6 @@
 @section('content')
 @push('stylesheets')
 <link href="{{ URL::asset('css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
-<link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet">
 @endpush
 
 
