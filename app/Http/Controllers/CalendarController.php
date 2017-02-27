@@ -16,14 +16,15 @@ class CalendarController extends Controller
 
     public function index()
     {
-        // $data['test_tasks'] = Task::join('patients', 'patients.id', '=', 'tasks.patient_id')->select('tasks.id', 'patients.name as title', 'start', 'patient_id')->orderBy('start')->get();
-
-        // foreach ($data['test_tasks'] as $task) {
-        //     $task['url'] = url('patient/'.$task['patient_id']);
-        // }
-
         $tasks = Task::with('patient')->get();
+        $data = [];
 
-        return view('calendar', $tasks);
+        foreach ($tasks as $task) {
+            array_push($data, [
+                'title' => $task->action . ' ' . $task->patient->name,
+                'start' => $task->expected_at
+            ]);
+        }
+        return view('calendar', compact('data'));
     }
 }

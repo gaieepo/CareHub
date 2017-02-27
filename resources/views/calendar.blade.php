@@ -19,9 +19,7 @@
             m = date.getMonth(),
             y = date.getFullYear();
 
-        var test_tasks = {!! json_encode($test_tasks->toArray()) !!};
-
-        // console.log(test_tasks);
+        var data = {!! json_encode($data) !!};
 
         $('#calendar').fullCalendar({
             header: {
@@ -36,7 +34,7 @@
                 day: 'Day'
             },
             eventLimit: true,
-            events: test_tasks
+            events: data
         });
     });
 </script>
