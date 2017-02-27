@@ -63,7 +63,7 @@
   @section('postscript')
     <script src="{{ URL::asset('js/jquery.wizard.js') }}"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
-    <script src="{{ URL::asset('js/lightbox.min.js') }}""></script>
+    <script src="{{ URL::asset('js/lightbox.min.js') }}"></script>
     <script>
       jQuery(document).ready(function() {
 
