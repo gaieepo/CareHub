@@ -21,6 +21,7 @@ elixir(mix => {
        .webpack('app.js')
        .webpack('jquery.wizard.js')
        .webpack('lightbox.min.js')
+       .scripts('clipboard.min.js')
        .scripts('dataTables.bootstrap.min.js')
        .scripts('jquery.dataTables.min.js');
 });
