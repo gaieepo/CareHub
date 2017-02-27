@@ -29,14 +29,6 @@
                             <th>Complexity</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>NRIC</th>
-                            <th>Complexity</th>
-                        </tr>
-                    </tfoot>
                     <tbody>
                     @foreach ($patients as $patient)
                         <tr id='clickable-row' onclick="window.document.location='{{ url('patient/'.$patient->id) }}';">
