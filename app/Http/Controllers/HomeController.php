@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Patient;
+use App\Task;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,6 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $start = Carbon::now()->hour(0)->minute(0)->second(0);
+        $end = Carbon::now()->hour(23)->minute(59)->second(59);
+        $pending_tasks = Task::with('patient')->whereBetween('expected_at', [$start, $end])->get();
+        return view('home', compact('pending_tasks'));
     }
 }
