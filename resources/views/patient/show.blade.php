@@ -17,60 +17,20 @@
           <b>NRIC</b> <a class="pull-right">{{ $patient->nric }}</a>
         </li>
         <li class="list-group-item">
-          <b>Complexity</b> <a class="pull-right">{{ ($patient->complexity == 1) ? 'basic' : ($patient->complexity == 2 ? 'moderate' : 'complex') }}</a>
+          <b>Complexity</b> <a class="pull-right">{{ $patient->complexity }}</a>
         </li>
         <li class="list-group-item">
           <b>Discharge</b> <a class="pull-right">{{ $patient->discharge }}</a>
         </li>
       </ul>
-      <a href="{{ route('generateTasks', ['id' => $patient->id, 'complexity' => $patient->complexity]) }}" class="btn btn-primary btn-block"><b>Open Patient Details</b></a>
-    </div>
-    <!-- /.box-body -->
-  </div>
-  <!-- /.box -->
-
-  <!-- About Me Box -->
-  <div class="box box-primary">
-    <div class="box-header with-border">
-      <h3 class="box-title">About Me</h3>
-    </div>
-    <!-- /.box-header -->
-    <div class="box-body">
-      <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
-
-      <p class="text-muted">
-        B.S. in Computer Science from the University of Tennessee at Knoxville
-      </p>
-
-      <hr>
-
-      <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
-
-      <p class="text-muted">Malibu, California</p>
-
-      <hr>
-
-      <strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
-
-      <p>
-        <span class="label label-danger">UI Design</span>
-        <span class="label label-success">Coding</span>
-        <span class="label label-info">Javascript</span>
-        <span class="label label-warning">PHP</span>
-        <span class="label label-primary">Node.js</span>
-      </p>
-
-      <hr>
-
-      <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+      <a href="#" class="btn btn-primary btn-block"><b>Add Ad-Hoc</b></a>
     </div>
     <!-- /.box-body -->
   </div>
   <!-- /.box -->
 </div>
 <!-- /.col -->
+
 <div class="col-md-9">
   <div class="nav-tabs-custom">
     <ul class="nav nav-tabs">
@@ -79,26 +39,22 @@
       <li><a href="#history" data-toggle="tab">History</a></li>
     </ul>
     <div class="tab-content">
-      
+
         <div class="active tab-pane" id="tasks">
             <table class="table table-bordered">
             <tr>
-              <th style="width: 10px">#</th>
               <th>Task</th>
-              <th>Users</th>
-              <th style="width: 40px">Date</th>
+              <th>Expected At</th>
+              <th>Marked By</th>
             </tr>
-            @foreach ($patient->tasks->where('start', '>=', Carbon\Carbon::today()->toDateString()) as $task)
-            <tr>
-              <td>{{ $task->id }}.</td>
-              <td>{{ $task->action . ' ' . App\Patient::find($task->patient_id)->name }}</td>
-              <td>
-                <div class="progress progress-xs progress-striped active">
-                  <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                </div>
-              </td>
-              <td>{{ $task->start }}</td>
-            </tr>
+            @foreach ($patient->tasks as $task)
+              @if (! $task->completed)
+              <tr>
+                <td>{{ $task->action . ' ' . $patient->name }}</td>
+                <td>{{ $task->expected_at }}</td>
+                <td>{{ $task->marked_by }}</td>
+              </tr>
+              @endif
             @endforeach
             </table>
         </div>
@@ -120,7 +76,7 @@
                 <label>{!! Form::radio('complexity', 3) !!}Complex</label>
               </div>
             </div>
-          </div>           
+          </div>
 
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
@@ -134,22 +90,18 @@
       <div class="tab-pane" id="history">
             <table class="table table-bordered">
             <tr>
-              <th style="width: 10px">#</th>
               <th>Task</th>
-              <th>Users</th>
-              <th style="width: 40px">Date</th>
+              <th>Date</th>
+              <th>Completed By</th>
             </tr>
-            @foreach ($patient->tasks->where('start', '<', Carbon\Carbon::today()->toDateString()) as $task)
-            <tr>
-              <td>{{ $task->id }}.</td>
-              <td>{{ $task->action . ' ' . App\Patient::find($task->patient_id)->name }}</td>
-              <td>
-                <div class="progress progress-xs progress-striped active">
-                  <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                </div>
-              </td>
-              <td>{{ $task->start }}</td>
-            </tr>
+            @foreach ($patient->tasks as $task)
+              @if ($task->completed)
+              <tr>
+                <td>{{ $task->action . ' ' . $patient->name }}</td>
+                <td>{{ $task->expected_at }}</td>
+                <td>{[ $task->completed_by }}</td>
+              </tr>
+              @endif
             @endforeach
             </table>
         </div>
