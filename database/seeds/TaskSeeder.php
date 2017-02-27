@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Database\Seeder;
-
-use Carbon\Carbon;
 use App\Patient;
+use App\Utils\TaskGenerator;
+use Carbon\Carbon;
+use Illuminate\Database\Seeder;
 
 class TaskSeeder extends Seeder
 {
@@ -14,22 +14,11 @@ class TaskSeeder extends Seeder
      */
     public function run()
     {
-        $newVer = 0;
-        $numPatients = Patient::all()->count();
-        for ($i=1; $i <= $numPatients; $i++) {
-            $cnt = rand(3, 8);
-            $step = 0;
-            for ($j=0; $j < $cnt; ++$j) {
-                $interval = rand(2, 14);
-                $step += $interval;
+        $generator = new TaskGenerator;
 
-                $newTask = new App\Task;
-                $newTask->patient_id = $i;
-                $newTask->action = 'Call';
-                $newTask->start = Carbon::now()->addDays($newVer)->addDays($step)->addDays($interval);
-                $newTask->save();
-            }
-            $newVer += rand(10, 20);
+        $patients = Patient::all();
+        foreach ($patients as $patient) {
+            $generator->generate($patient);
         }
     }
 }

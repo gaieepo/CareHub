@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePatientTable extends Migration
+class CreatePatientsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -18,8 +18,8 @@ class CreatePatientTable extends Migration
             $table->increments('id');
             $table->string('nric');
             $table->string('name');
-            $table->integer('complexity');
-            $table->date('discharge');
+            $table->enum('complexity', ['basic', 'moderate', 'complex']);
+            $table->timestamp('discharge');
             $table->timestamps();
         });
     }

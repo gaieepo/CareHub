@@ -2,11 +2,11 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-
-use Zizaco\Entrust\Traits\EntrustUserTrait;
+use App\Task;
 use Cmgmyr\Messenger\Traits\Messagable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
 
 class User extends Authenticatable
 {
@@ -32,11 +32,18 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function assigned_tasks() {
-        return $this->hasMany('App\Task', 'id', 'assignee');
+    public function created_tasks()
+    {
+        return $this->hasMany(Task::class, 'created_by');
     }
 
-    public function created_tasks() {
-        return $this->hasMany('App\Task', 'id', 'assigner');
+    public function marked_tasks()
+    {
+        return $this->hasMany(Task::class, 'marked_by');
+    }
+
+    public function completed_tasks()
+    {
+        return $this->hasMany(Task::class, 'completed_by');
     }
 }

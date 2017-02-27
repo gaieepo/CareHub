@@ -16,15 +16,17 @@ class CreateTasksTable extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('patient_id')->unsigned();
-            $table->integer('author');
-            $table->timestamp('start');
-            $table->timestamp('end')->nullable();
-            $table->boolean('completed')->default(false);
-            $table->integer('completed_by')->nullable();
+            $table->enum('action', ['call', 'visit']);
             $table->text('note')->nullable();
+            $table->timestamp('expected_at')->nullable();
+            $table->timestamp('marked_at')->nullable();
+            $table->timestamp('completed_at')->nullable();
+            $table->boolean('completed')->default(false);
+            $table->integer('created_by')->unsigned()->nullable()->default(0);
+            $table->integer('marked_by')->unsigned()->nullable();
+            $table->integer('completed_by')->unsigned()->nullable();
             $table->timestamps();
-
-            $table->foreign('patient_id')->references('id')->on('patients');
+            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
         });
     }
 
