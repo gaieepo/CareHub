@@ -7,21 +7,9 @@ use App\Task;
 
 class TaskController extends Controller
 {
-	// protected 
-
 	public function index()
 	{
-		return view('task/index')->withTasks(Task::all());
+		$tasks = Task::with('patient')->get();
+		return view('task.index', compact('tasks'));
 	}
-
-	// public function createUnderComplexity($id, $complexity)
-	// {
-	// 	if ($complexity == 1) { // basic
-	// 		# code...
-	// 	} elseif ($complexity == 2) { // moderate
-	// 		# code...
-	// 	} else { // complex
-
-	// 	}
-	// }
 }
