@@ -19,22 +19,22 @@
 
                 <a href="{{ url('patient/create') }}" class="btn btn-lg btn-primary">Create</a>
                 <hr>
-                <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <table id="patients" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
-                        <tr>
-                            <th>ID</th>
+                        <tr>                        
                             <th>Name</th>
                             <th>NRIC</th>
                             <th>Complexity</th>
+                            <th>Last Updated</th>
                         </tr>
                     </thead>
                     <tbody>
                     @foreach ($patients as $patient)
-                        <tr id='clickable-row' onclick="window.document.location='{{ url('patient/'.$patient->id) }}';">
-                            <td style="cursor: pointer;">{{ $patient->id }}</td>
+                        <tr id='clickable-row' onclick="window.document.location='{{ url('patient/'.$patient->id) }}';">                        
                             <td style="cursor: pointer;">{{ $patient->name }}</td>
                             <td style="cursor: pointer;">{{ $patient->nric }}</td>
                             <td style="cursor: pointer;">{{ $patient->complexity }}</td>
+                            <td style="cursor: pointer;">{{ $patient->updated_at }}</td>
                     
                         </tr>
                     @endforeach  
@@ -52,7 +52,7 @@
 <script src="{{ URL::asset('js/dataTables.bootstrap.min.js') }}"></script>
 <script>
 $(document).ready(function() {
-    $('#example').DataTable();
+    $('#patients').DataTable();
 } );
 </script>
 @endsection

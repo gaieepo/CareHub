@@ -18,7 +18,7 @@
 <ul class="sidebar-menu">
             <!-- Optionally, you can add icons to the links -->
             <li class="{{ (Request::is('/') ? 'active' : '') }}"><a href="{{ url('/') }}"><span>Dashboard</span></a></li>
-            <li><a href="#"><span>Task</span></a></li>
+            <li class="{{ (Request::is('task') ? 'active' : '') }}"><a href="{{ url('task') }}"><span>Task</span></a></li>
             <li class="{{ (Request::is('patient') ? 'active' : '') }}"><a href="{{ url('patient') }}"><span>Patients</span></a></li>
             <li><a href="{{ url('/protocol')}}">Protocol List</a></li>
             <li class="treeview">
