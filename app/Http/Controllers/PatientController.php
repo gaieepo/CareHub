@@ -13,11 +13,14 @@ class PatientController extends Controller
 	public function index()
 	{
         $page_title = "Patient List";
-		return view('patient.index')->withPatients(Patient::all())->with('page_title', $page_title);
+        $patients = Patient::all();
+		return view('patient.index', compact('page_title', 'patients'));
 	}
 
     public function show($id) {
-    	return view('patient.show')->withPatient(Patient::find($id))->with('page_title', 'Patient Profile');
+        $patient = Patient::with('tasks')->find($id);
+        $page_title = 'Patient Profile';
+    	return view('patient.show', compact('page_title', 'patient'));
     }
 
     public function create()
@@ -48,12 +51,6 @@ class PatientController extends Controller
     	}
     }
 
-    // public function edit($id)
-    // {
-    //     $patient = Patient::find($id);
-    //     return view('patient.edit')->with('patient', $patient);
-    // }
-
     public function update($id, Request $request)
     {
         $this->validate($request, [
@@ -70,233 +67,9 @@ class PatientController extends Controller
         }
     }
 
-    public function destroy($id) 
+    public function destroy($id)
     {
         Patient::find($id)->delete();
         return redirect()->back()->withInput()->withErrors('Delete complete!');
-    }
-
-    public function generateTasks($id, $complexity)
-    {
-        echo 'Not generating any';
-        // $patient = Patient::findOrFail($id);
-        // $date = Carbon::parse($patient->discharge);
-        // $current = $date;
-
-        // if ($patient->complexity == 3) {
-                
-        //         $task = new Task;
-        //         $date->addDays(2);
-        //         $task->patient_id = $patient->id;
-        //         $task->start = $date;
-        //         $task->action = "Call";
-        //         $task->author = 1;
-        //         $task->save();
-        //         $date = $current;
-
-        //         $task = new Task;
-        //         $date->addWeeks(1);
-        //         $task->patient_id = $patient->id;
-        //         $task->start = $date;
-        //         $task->action = "Call";
-        //         $task->author = 1;
-        //         $task->save();
-        //         $date = $current;
-
-        //         $task = new Task;
-        //         $date->addWeeks(2);
-        //         $task->patient_id = $patient->id;
-        //         $task->start = $date;
-        //         $task->action = "Call";
-        //         $task->author = 1;
-        //         $task->save();
-        //         $date = $current;
-
-        //         $task = new Task;
-        //         $date->addWeeks(4);
-        //         $task->patient_id = $patient->id;
-        //         $task->start = $date;
-        //         $task->action = "Call";
-        //         $task->author = 1;
-        //         $task->save();
-        //         $date = $current;
-
-        //         $task = new Task;
-        //         $date->addWeeks(6);
-        //         $task->patient_id = $patient->id;
-        //         $task->start = $date;
-        //         $task->action = "Call";
-        //         $task->author = 1;
-        //         $task->save();
-        //         $date = $current;
-
-        //         $task = new Task;
-        //         $date->addWeeks(10);
-        //         $task->patient_id = $patient->id;
-        //         $task->start = $date;
-        //         $task->action = "Call";
-        //         $task->author = 1;
-        //         $task->save();
-        //         $date = $current;
-
-        //         $task = new Task;
-        //         $date->addMonths(3);
-        //         $task->patient_id = $patient->id;
-        //         $task->start = $date;
-        //         $task->action = "Call";
-        //         $task->author = 1;
-        //         $task->save();
-        //         $date = $current;
-
-        //         $task = new Task;
-        //         $date->addMonths(4);
-        //         $task->patient_id = $patient->id;
-        //         $task->start = $date;
-        //         $task->action = "Call";
-        //         $task->author = 1;
-        //         $task->save();
-        //         $date = $current;
-
-        //         $task = new Task;
-        //         $date->addMonths(6);
-        //         $task->patient_id = $patient->id;
-        //         $task->start = $date;
-        //         $task->action = "Call";
-        //         $task->author = 1;
-        //         $task->save();
-        //         $date = $current;
-
-        //         $task = new Task;
-        //         $date->addMonths(7);
-        //         $task->patient_id = $patient->id;
-        //         $task->start = $date;
-        //         $task->action = "Call";
-        //         $task->author = 1;
-        //         $task->save();
-        //         $date = $current;
-
-        //         $task = new Task;
-        //         $date->addMonths(9);
-        //         $task->patient_id = $patient->id;
-        //         $task->start = $date;
-        //         $task->action = "Call";
-        //         $task->author = 1;
-        //         $task->save();
-        //         $date = $current;
-
-        //         $task = new Task;
-        //         $date->addMonths(10);
-        //         $task->patient_id = $patient->id;
-        //         $task->start = $date;
-        //         $task->action = "Call";
-        //         $task->author = 1;
-        //         $task->save();
-        //         $date = $current;
-        //     }
-
-        //     if ($patient->complexity == 2) {
-                
-        //         $task = new Task;
-        //         $date->addDays(2);
-        //         $task->patient_id = $patient->id;
-        //         $task->start = $date;
-        //         $task->action = "Call";
-        //         $task->author = 1;
-        //         $task->save();
-        //         $date = $current;
-
-        //         $task = new Task;
-        //         $date->addWeeks(2);
-        //         $task->patient_id = $patient->id;
-        //         $task->start = $date;
-        //         $task->action = "Call";
-        //         $task->author = 1;
-        //         $task->save();
-        //         $date = $current;
-
-        //         $task = new Task;
-        //         $date->addWeeks(4);
-        //         $task->patient_id = $patient->id;
-        //         $task->start = $date;
-        //         $task->action = "Call";
-        //         $task->author = 1;
-        //         $task->save();
-        //         $date = $current;
-
-        //         $task = new Task;
-        //         $date->addMonths(3);
-        //         $task->patient_id = $patient->id;
-        //         $task->start = $date;
-        //         $task->action = "Call";
-        //         $task->author = 1;
-        //         $task->save();
-        //         $date = $current;
-
-        //         $task = new Task;
-        //         $date->addMonths(6);
-        //         $task->patient_id = $patient->id;
-        //         $task->start = $date;
-        //         $task->action = "Call";
-        //         $task->author = 1;
-        //         $task->save();
-        //         $date = $current;
-
-        //         $task = new Task;
-        //         $date->addMonths(10);
-        //         $task->patient_id = $patient->id;
-        //         $task->start = $date;
-        //         $task->action = "Call";
-        //         $task->author = 1;
-        //         $task->save();
-        //         $date = $current;
-        //     }
-
-        //     if ($patient->complexity == 1) {
-                
-        //         $task = new Task;
-        //         $date->addDays(2);
-        //         $task->patient_id = $patient->id;
-        //         $task->start = $date;
-        //         $task->action = "Call";
-        //         $task->author = 1;
-        //         $task->save();
-        //         $date = $current;
-
-        //         $task = new Task;
-        //         $date->addWeeks(2);
-        //         $task->patient_id = $patient->id;
-        //         $task->start = $date;
-        //         $task->action = "Call";
-        //         $task->author = 1;
-        //         $task->save();
-        //         $date = $current;
-
-        //         $task = new Task;
-        //         $date->addWeeks(6);
-        //         $task->patient_id = $patient->id;
-        //         $task->start = $date;
-        //         $task->action = "Call";
-        //         $task->author = 1;
-        //         $task->save();
-        //         $date = $current;
-
-        //         $task = new Task;
-        //         $date->addMonths(6);
-        //         $task->patient_id = $patient->id;
-        //         $task->start = $date;
-        //         $task->action = "Call";
-        //         $task->author = 1;
-        //         $task->save();
-        //         $date = $current;
-
-        //         $task = new Task;
-        //         $date->addMonths(9);
-        //         $task->patient_id = $patient->id;
-        //         $task->start = $date;
-        //         $task->action = "Call";
-        //         $task->author = 1;
-        //         $task->save();
-        //         $date = $current;
-        //     }
     }
 }

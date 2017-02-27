@@ -15,7 +15,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');
 
-Route::get('patient/generateTasks/{id}/{complexity}', ['as' => 'generateTasks', 'uses' => 'PatientController@generateTasks']);
+// Route::get('patient/generateTasks/{id}/{complexity}', ['as' => 'generateTasks', 'uses' => 'PatientController@generateTasks']);
 Route::resource('patient', 'PatientController');
 Route::resource('task', 'TaskController');
 
@@ -23,6 +23,7 @@ Route::get('calendar', 'CalendarController@index');
 
 Route::get('user/{id}', 'UserController@show');
 
+// Message related routes
 Route::group(['middleware' => 'auth', 'prefix' => 'messages'], function() {
 	Route::get('/', ['as' => 'messages', 'uses' => 'MessageController@index']);
 	Route::get('create', ['as' => 'messages.create', 'uses' => 'MessageController@create']);
@@ -31,7 +32,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'messages'], function() {
 	Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessageController@update']);
 });
 
-
+// Protocal related routes
 Route::get('patient_summary', function () {
         return view('static_forms/patient_summary/patientsummary');
 });
