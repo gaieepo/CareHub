@@ -33,9 +33,15 @@ Route::group(['middleware' => 'auth', 'prefix' => 'messages'], function() {
 });
 
 // Protocal related routes
-Route::get('patient_summary', function () {
+Route::get('old_patient_summary', function () {
         return view('static_forms/patient_summary/patientsummary');
 });
+
+Route::get('patient_summary', function () {
+        return view('forms/patient_summary');
+});
+
+
 Route::get('patient_profile', function () {
         return view('static_forms/patient_profile/patientfile');
     });
